@@ -497,7 +497,7 @@ function App() {
     <div className="container">
       {/* List grades */}
       <div className="panel">
-        <h2>Grades</h2>
+        <h3>Grades</h3>
         {Object.keys(data).map((grade) => (
           <button key={grade} onClick={() => handleGradeClick(grade)}>
             {grade}
@@ -508,7 +508,7 @@ function App() {
       {/* List subjects for the current grade */}
       {currentGrade && (
         <div className="panel">
-          <h2>Subjects for Grade {currentGrade}</h2>
+          <h3>Subjects for Grade {currentGrade}</h3>
           {Object.keys(data[currentGrade]).map((subject) => (
             <button key={subject} onClick={() => handleSubjectClick(subject)}>
               {subject}
@@ -522,7 +522,7 @@ function App() {
         currentGrade &&
         typeof data[currentGrade][currentSubject] === "object" && (
           <div className="panel">
-            <h2>Strands for {currentSubject}</h2>
+            <h3>Strands for {currentSubject}</h3>
             {Object.keys(data[currentGrade][currentSubject]).map((strand) => (
               <button key={strand} onClick={() => handleStrandClick(strand)}>
                 {strand}
@@ -548,7 +548,7 @@ function App() {
         currentGrade &&
         Array.isArray(data[currentGrade][currentSubject][currentStrand]) && (
           <div className="panel">
-            <h2>Substrands for {currentStrand}</h2>
+            <h3>Substrands for {currentStrand}</h3>
             {data[currentGrade][currentSubject][currentStrand].map(
               (substrand) => (
                 <button
@@ -573,13 +573,12 @@ function App() {
           </div>
         )}
 
+      {/* Display the current indicator */}
+      {currentIndicator && <div>{currentIndicator}</div>}
       {/* Update button */}
       <div className="update-btn">
         <button onClick={handleUpdate}>Update</button>
       </div>
-
-      {/* Display the current indicator */}
-      {currentIndicator && <div>{currentIndicator}</div>}
     </div>
     // add a comment here
   );
