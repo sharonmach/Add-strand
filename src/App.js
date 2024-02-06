@@ -581,6 +581,7 @@ function App() {
       {/* Display the current indicator */}
       {currentIndicator && <div>{currentIndicator}</div>}
     </div>
+    // add a comment here
   );
 }
 
